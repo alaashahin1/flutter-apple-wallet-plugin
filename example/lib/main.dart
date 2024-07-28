@@ -31,10 +31,10 @@ class _MyAppState extends State<MyApp> {
     if (response.data != null) {
       try {
         var result =
-            await Wallet.presentAddPassViewController(pkpass: response.data);
+            await Wallet.presentAddPassViewController(pkpass: response.data!);
         print(result);
       } catch (e) {
-        print(e.message);
+        print(e.toString());
       }
     } else {}
   }
@@ -47,7 +47,7 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Pass example app'),
         ),
         body: Center(
-          child: RaisedButton(
+          child: ElevatedButton(
             child: Text("Get Pass"),
             onPressed: () {
               getPass();
